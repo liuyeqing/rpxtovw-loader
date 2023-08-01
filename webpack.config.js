@@ -20,9 +20,9 @@ module.exports = {
                     'style-loader',
                     'css-loader',
                     {
-                        loader: 'rpxtovw-loader',
+                        loader: path.join(__dirname, './src/loaders/rpxtovw-loader.js'),
                         options:{
-                            unit: 1920
+                            unit: 750
                         }
                     }
                 ]

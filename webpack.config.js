@@ -1,33 +1,26 @@
 const path = require('path')
-const entryOptionPlugin = require('./src/plugins/entry-option-plugin.js')
-const UploadDiffServerPlugin = require('upload-diff-server-plugin')
-// const UploadDiffServerPlugin = require('./src/plugins/upload-diff-server-plugin.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-console.log(__dirname);
 module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve('dist'),
         filename: 'bundle.js'
     },
-    resolveLoader: {
-        modules: ['node_modules','./src/loaders']
-    },
     plugins: [
-        new entryOptionPlugin(),
-        new UploadDiffServerPlugin(),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html'
+        })
     ],
     module: {
         rules: [
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 use: [
                     'style-loader',
-                    'less-loader',
+                    'css-loader',
                     {
                         loader: 'rpxtovw-loader',
-                        // loader: path.join(__dirname, './src/loaders/rpxtovw-loader-liuyeqing.js'),
                         options:{
                             unit: 1920
                         }

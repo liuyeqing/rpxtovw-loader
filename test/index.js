@@ -9,9 +9,8 @@ const options = {
 
 describe('Loader', function () {
   it('should transform rpx value into vw', function () {
-    const output = loader.call(options, 'body {width: 750rpx}')
-    console.log('output', output);
-    expect(output).is.a('string')
-    expect(output).to.equal('body {width:100vw}')
+    const output = loader.call(options, 'body {width: 750rpx}') //输入'body {width: 750rpx}'，得到输出值output
+    expect(output).is.a('string') //输出的值的类型、预期是字符串
+    expect(output).to.equal('body {width:100vw}') //预期的输出值是'body {width:100vw}'
   })
 })
